@@ -4,7 +4,7 @@
 ### Traces
 The term "trace" refers to historical entities for which there is spatial-temporal data of interest. Trace data takes the form of W3C web annotations. The **_target_** is a LOD web-published record of some entity, and the **_body_** (annotation) contains one or more place record URIs, a relation between a place and the target entity, and an optional temporal scoping for each.
 
-Traces have alrady been indexed and displayed in the [Peripleo web application](http://peripleo.pelagios.org) developed by Rainer Simon of the [Pelagios](http://commons.pelagios.org); to date these are principally records of coins and inscriptions annotated with their find spots in the Classical Mediterranean region. This new format is design to better accomodate more kinds of traces, including not only such **artifacts**, but **events** of all kinds, **people**, **works**.
+Traces have alrady been indexed and displayed in the [Peripleo web application](http://peripleo.pelagios.org) developed by Rainer Simon of the [Pelagios](http://commons.pelagios.org); to date these are principally records of coins and inscriptions annotated with their find spots in the Classical Mediterranean region. This new format is designed to better accomodate more kinds of traces, including not only such **artifacts**, but **events** of all kinds, **people**, and **works**.
 
 The Linked Traces Annotation format (LTA format) will supercede the [Pelagios annotation format](https://github.com/pelagios/pelagios-cookbook/wiki/Joining-Pelagios) (under _The Dataset Summary_ > _Minimum Example_) as a template for contributions of "trace" data to both [World-Historical Gazeetteer](http://whgazetteer.org) and [Pelagios](http://commons.pelagios.org). Hopefully it will be found useful and adopted in other projects.
 
@@ -274,6 +274,6 @@ If you would like to join this discussion, please contact one of the contributor
 }
 ```
 ---
-Contributors: Karl Grossner (@kgeographer); Rainer Simon (@aboutgeo)
+Contributors: Karl Grossner (@kgeographer); Rainer Simon (@rsimon)
 
 
