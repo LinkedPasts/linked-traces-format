@@ -274,6 +274,6 @@ If you would like to join this discussion, please contact one of the contributor
 }
 ```
 ---
-Contributors: Karl Grossner (@kgeographer); Rainer Simon (@aboutgeo)
+Contributors: [Karl Grossner](@kgeographer); [Rainer Simon](@aboutgeo)
 
 
