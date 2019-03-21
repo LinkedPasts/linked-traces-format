@@ -1,0 +1,228 @@
+// LP CONTEXT ('lp ontology')
+{
+  "@context":{
+    "lpo":        "http://linkedpasts.org/ontology",
+    "lpo:when":   "",
+    "relation":   "",
+    "source":     "",
+    "target":     "",
+    "waypoint":   "",
+    "findspot":   "",
+  }
+}
+
+// EVENT (PROCESS)
+{
+  "@id": " http://my.org/event/98765",
+  "type": "lpo:HistoricalProcess ",
+  "title": "Diffusion of Islam",
+  "description": "yada yada, not too long...",
+  "when": {"timespans":[
+    {"start":{"in":"633"},"":{"in":"652"}}
+  ]},
+  "language": "en",
+  "subject": ["cultural diffusion", "Islam"]
+}
+// ANNOTATIONS
+{ "@context":"http://www.w3.org/ns/anno.jsonld",
+  "id": "http://my.org/annotations/92837",
+  "type": "Annotation",
+  "creator": {
+    "id":"http://example.org/people/1234",
+    "name":"Ima Tracemaker",
+    "homepage":"http://tracemaker.org"
+  },
+  "created": "2019-03-18",
+  "motivation": "linking",
+  "body": [
+    { "id": "http://whgazetteer.org/places/86880",
+      "dc:title": "Medina",
+      "relation": "source",
+      "when": {"timespans":[
+        {"start":{"in":"634"},"end":{"in":"634"}}
+      ]}
+    },
+    { "id": "http://whgazetteer.org/places/84774",
+      "dc:title": "Hejaz",
+      "relation": "target",
+      "when": {"timespans":[
+        {"start":{"in":"632"},"end":{"in":"634"}}
+      ]}
+    },
+    // ... etc.
+  ],
+  "target": {
+    "id": "http://my.org/event/98765",
+    "type": "lpo:HistoricalProcess",
+    "dc:title" "Diffusion of Islam"
+  },
+}
+
+// EVENT (JOURNEY)
+{
+  "@id": " http://my.org/event/90001",
+  "type": "lpo:Journey",
+  "title": "Pilgrimage of Xuanzang",
+  "dc:description": "yada yada, not too long...",
+  "when": {"timespans":[
+    {"start":{"in":"630"},"end":{"in":"645"}}
+  ]},
+  "language": "en",
+  "dc:subject": ["Buddhism","pilgrimage"]
+}
+// ANNOTATIONS
+{ "@context":"http://www.w3.org/ns/anno.jsonld",
+  "id": "http://my.org/annotations/92837",
+  "type": "Annotation",
+  "creator": {
+    "id":"http://example.org/people/2345",
+    "name":"Ima Tracemaker",
+    "homepage":"http://tracemaker.org"
+  },
+  "created": "2019-03-18",
+  "motivation": "linking",
+  "body": [
+    { "id": "http://whgazetteer.org/places/86880",
+      "dc:title": "Tashkent",
+      "relation": "lpo:waypoint",
+      "when": {"timespans":[
+        {"start":{"in":"630"},"end":{"in":"630"}}
+      ]}
+    },
+    { "id": "http://whgazetteer.org/places/84774",
+      "dc:title": "Mathura",
+      "lpo:relation": "lpo:waypoint",
+      "lpo:when": {"timespans":[
+        {"start":{"in":"634"},"end":{"in":"634"}}
+      ]}
+    },
+    // ... etc.
+  ],
+  "target": {
+    "id": "http://my.org/event/90001",
+    "type": "lpo:Journey",
+    "dc:title" "Pilgrimage of Xuanzang"
+  },
+}
+
+// PERSON
+{
+  "@id": "https://en.wikipedia.org/wiki/Kʼinich_Janaabʼ_Pakal",
+  "type": "lpo:Person",
+  "title": "Kʼinich Janaabʼ Pakal",
+  "dc:description": "yada yada, not too long...",
+  "when": {"timespans":[
+    { "start": {"in":"0603-03-21"},
+      "end": {"in":"0683-08-26"}
+    }
+  ]},
+  "language": "en",
+  "dc:subject": ["Maya","ajaw"]
+}
+// ANNOTATIONS
+{ "@context":"http://www.w3.org/ns/anno.jsonld",
+  "id": "http://my.org/annotations/92837",
+  "type": "Annotation",
+  "creator": {
+    "id":"http://example.org/people/2345",
+    "name":"Ima Tracemaker",
+    "homepage":"http://tracemaker.org"
+  },
+  "created": "2019-03-18",
+  "motivation": "linking",
+  "body": [
+    { "id": "http://whgazetteer.org/places/12352710",
+      "dc:title": "Palenque",
+      "relation": [
+        "lpo:birthplace",
+        "lpo:deathplace"
+      ],
+      "when": {"timespans":[
+        {"start":{"in":"0603-03-21"}}
+      ]}
+    }
+    // ... etc.
+  ],
+  "target": {
+    "id": "http://my.org/people/80001",
+    "type": "lpo:Person",
+    "dc:title" "Kʼinich Janaabʼ Pakal"
+  },
+}
+
+// TEXT
+{
+  "@id": "https://lccn.loc.gov/99019900",
+  "type": "lpo:Text",
+  "title": "Gods and Goddesses of the Ancient Maya",
+  "dc:description": "yada yada, not too long...",
+  "when": {"timespans":[
+    { "start": {"in":"1999"}}
+  ]},
+  "language": "en",
+  "dc:subject": ["Maya","gods","goddesses"]
+}
+// ANNOTATIONS
+{ "@context":"http://www.w3.org/ns/anno.jsonld",
+  "id": "http://my.org/annotations/92837",
+  "type": "Annotation",
+  "creator": {
+    "id":"http://example.org/people/2345",
+    "name":"Ima Tracemaker",
+    "homepage":"http://tracemaker.org"
+  },
+  "created": "2019-03-18",
+  "motivation": "linking",
+  "body": [
+    { "id": "http://whgazetteer.org/places/12347857",
+      "dc:title": "Copán",
+      "relation": ["dc:subject"]
+    },
+    { "id": "http://whgazetteer.org/places/12355022",
+      "dc:title": "Tikal",
+      "relation": ["dc:subject"]
+    }
+    // ... etc.
+  ],
+  "target": {
+    "id": "https://lccn.loc.gov/99019900",
+    "type": "lpo:Text",
+    "dc:title" "Gods and Goddesses of the Ancient Maya"
+  },
+}
+
+// ARTIFACT
+{
+  "@id": "https://www.britishmuseum.org/explore/a_history_of_the_world/objects.aspx#9",
+  "type": "lpo:Artifact",
+  "title": "Maya Maize God Statue",
+  "dc:description": "yada yada, not too long...",
+  "when": {"timespans":[
+    { "start": {"in":"0715"}}
+  ]},
+  "language": "en",
+  "dc:subject": ["Maya","gods"]
+}
+// ANNOTATIONS
+{ "@context":"http://www.w3.org/ns/anno.jsonld",
+  "id": "http://my.org/annotations/92837",
+  "type": "Annotation",
+  "creator": {
+    "id":"http://example.org/people/2345",
+    "name":"Ima Tracemaker"
+  },
+  "created": "2019-03-18",
+  "motivation": "linking",
+  "body": [
+    { "id": "http://whgazetteer.org/places/12347857",
+      "dc:title": "Copán",
+      "relation": ["findspot"]
+    }
+  ],
+  "target": [
+    { "id": "https://www.britishmuseum.org/explore/a_history_of_the_world/objects.aspx#9",
+      "type": "lpo:Artifact",
+      "dc:title" "Maya Maize God Statue"
+    }
+  ],
+}
