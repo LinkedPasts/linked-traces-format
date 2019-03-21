@@ -2,15 +2,15 @@
 *v0.1 Draft for comment, 21 Mar 2019*
 
 ### Traces
-The term "trace" refers to historical entities for which there is spatial-temporal data of interest. Trace data takes the form of W3C web annotations. The **_target_** is a LOD web-published record of some entity, and the **_body_** (annotation) contains one or more place record URIs, a relation between a place and the target entity, and an optional temporal scoping for each.
+The term "trace" refers to historical entities for which there is spatial-temporal data of interest. Trace data takes the form of [W3C web annotations](https://www.w3.org/TR/annotation-model/). The **_target_** is a LOD web-published record of some entity, and the **_body_** (annotation) contains one or more place record URIs, a relation between a place and the target entity, and an optional temporal scoping for each.
 
-Traces have alrady been indexed and displayed in the [Peripleo web application](http://peripleo.pelagios.org) developed by Rainer Simon of the [Pelagios](http://commons.pelagios.org); to date these are principally records of coins and inscriptions annotated with their find spots in the Classical Mediterranean region. This new format is designed to better accomodate more kinds of traces, including not only such **artifacts**, but **events** of all kinds, **people**, and **works**.
+Traces have already been indexed and displayed in the [Peripleo web application](http://peripleo.pelagios.org) developed by Rainer Simon for the [Pelagios](http://commons.pelagios.org) project; to date these are principally records of coins and inscriptions annotated with find spots in the Classical Mediterranean region. This new Linked Traces format is designed to better accommodate more kinds of traces, including not only **artifacts**, but **events** of all kinds, **people**, and **works**.
 
 The Linked Traces Annotation format (LTA format) will supercede the [Pelagios annotation format](https://github.com/pelagios/pelagios-cookbook/wiki/Joining-Pelagios) (under _The Dataset Summary_ > _Minimum Example_) as a template for contributions of "trace" data to both [World-Historical Gazeetteer](http://whgazetteer.org) and [Pelagios](http://commons.pelagios.org). Hopefully it will be found useful and adopted in other projects.
 
 
 ### Draft Examples
-A first take at the LTA format is represented below for convenience, and stored [here](https://github.com/LinkedPasts/linked-traces-format/blob/master/samples_0.01.json). A small working group will refine the model and ensure it conforms to the [W3C Web Annotation Data Model](https://www.w3.org/TR/annotation-model/), [W3C Web Annotation Vocabulary](https://www.w3.org/TR/annotation-vocab/), and more generally the draft spec for [JSON-LD v1.1](https://w3c.github.io/json-ld-syntax/). 
+A first take at the LTA format is stored [here](https://github.com/LinkedPasts/linked-traces-format/blob/master/samples_0.01.json) and represented below for convenience. A small working group will refine the model and ensure it conforms to the [W3C Web Annotation Data Model](https://www.w3.org/TR/annotation-model/), [W3C Web Annotation Vocabulary](https://www.w3.org/TR/annotation-vocab/), and more generally to the draft spec for [JSON-LD v1.1](https://w3c.github.io/json-ld-syntax/). 
 
 Contribution datasets will include a list of brief records for the annotated items (traces), and a collection of the annotation records themselves.
 
@@ -160,10 +160,7 @@ If you would like to join this discussion, please contact one of the contributor
       "lpo:relation": [
         "lpo:birthplace",
         "lpo:deathplace"
-      ],
-      "lpo:when": {"timespans":[
-        {"start":{"in":"0603-03-21"}}
-      ]}
+      ]
     }
     // ... etc.
   ],

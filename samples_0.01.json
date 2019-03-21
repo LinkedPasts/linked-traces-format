@@ -140,10 +140,7 @@
       "lpo:relation": [
         "lpo:birthplace",
         "lpo:deathplace"
-      ],
-      "lpo:when": {"timespans":[
-        {"start":{"in":"0603-03-21"}}
-      ]}
+      ]
     }
     // ... etc.
   ],
