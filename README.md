@@ -1,4 +1,4 @@
-## The Linked Traces Annotation format
+## The Linked Traces annotation format
 *v0.1 Draft for comment, 21 Mar 2019*
 
 ### Traces
@@ -6,11 +6,11 @@ The term "trace" refers to historical entities for which there is spatial-tempor
 
 Traces have already been indexed and displayed in the [Peripleo web application](http://peripleo.pelagios.org) developed by Rainer Simon for the [Pelagios](http://commons.pelagios.org) project; to date these are principally records of coins and inscriptions annotated with find spots in the Classical Mediterranean region. This new Linked Traces format is designed to better accommodate more kinds of traces, including not only **artifacts**, but **events** of all kinds, **people**, and **works**.
 
-The Linked Traces Annotation format (LTA format) will supercede the [Pelagios annotation format](https://github.com/pelagios/pelagios-cookbook/wiki/Joining-Pelagios) (under _The Dataset Summary_ > _Minimum Example_) as a template for contributions of "trace" data to both [World-Historical Gazeetteer](http://whgazetteer.org) and [Pelagios](http://commons.pelagios.org). Hopefully it will be found useful and adopted in other projects.
+The Linked Traces annotation format (LT format) will supercede the [Pelagios annotation format](https://github.com/pelagios/pelagios-cookbook/wiki/Joining-Pelagios) (under _The Dataset Summary_ > _Minimum Example_) as a template for contributions of trace data to both [World-Historical Gazeetteer](http://whgazetteer.org) and [Pelagios](http://commons.pelagios.org). Hopefully it will be found useful and adopted in other projects.
 
 
 ### Draft Examples
-A first take at the LTA format is stored [here](https://github.com/LinkedPasts/linked-traces-format/blob/master/samples_0.01.json) and represented below for convenience. A small working group will refine the model and ensure it conforms to the [W3C Web Annotation Data Model](https://www.w3.org/TR/annotation-model/), [W3C Web Annotation Vocabulary](https://www.w3.org/TR/annotation-vocab/), and more generally to the draft spec for [JSON-LD v1.1](https://w3c.github.io/json-ld-syntax/). 
+First take examples for an LT format are stored [here](https://github.com/LinkedPasts/linked-traces-format/blob/master/samples_0.01.json) and represented below for convenience. A small working group will refine the model, ensuring it a) meets requirements for a variety of use cases and b) conforms to the [W3C Web Annotation Data Model](https://www.w3.org/TR/annotation-model/), [W3C Web Annotation Vocabulary](https://www.w3.org/TR/annotation-vocab/), and more generally to the draft spec for [JSON-LD v1.1](https://w3c.github.io/json-ld-syntax/). 
 
 Contribution datasets will include a list of brief records for the annotated items (traces), and a collection of the annotation records themselves.
 
@@ -19,15 +19,14 @@ If you would like to join this discussion, please contact one of the contributor
 ---
 ```
 // CONTEXTS
-// see lpo context below
-{
-  "@context":[
+// see below
+{"@context":[
     "http://www.w3.org/ns/anno.jsonld",
     { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}
   ]
 }
 
-// types: HistoricalProcess, Journey, Person, Text (Work?), Artifact
+// types: HistoricalProcess, Journey, Person, Text/Work, Artifact
 
 // **
 // EVENT (PROCESS)
@@ -40,11 +39,14 @@ If you would like to join this discussion, please contact one of the contributor
   "lpo:when": {"timespans":[
     {"start":{"in":"633"},"":{"in":"652"}}
   ]},
-  "language": "en",
+  "language": "en", // use choice array?
   "dc:subject": ["cultural diffusion", "Islam"]
 }
 // ANNOTATIONS
-{ "@context":"http://www.w3.org/ns/anno.jsonld",
+{ "@context":[
+    "http://www.w3.org/ns/anno.jsonld",
+    { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}
+  ],
   "id": "http://my.org/annotations/92837",
   "type": "Annotation",
   "creator": {
@@ -93,7 +95,10 @@ If you would like to join this discussion, please contact one of the contributor
   "dc:subject": ["Buddhism","pilgrimage"]
 }
 // ANNOTATIONS
-{ "@context":"http://www.w3.org/ns/anno.jsonld",
+{ "@context":[
+    "http://www.w3.org/ns/anno.jsonld",
+    { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}
+  ],
   "id": "http://my.org/annotations/92837",
   "type": "Annotation",
   "creator": {
@@ -121,7 +126,7 @@ If you would like to join this discussion, please contact one of the contributor
     // ... etc.
   ],
   "target": {
-    "id": "http://my.org/event/90001",
+    "id": "http://my.org/events/90001",
     "type": "lpo:Journey",
     "dc:title" "Pilgrimage of Xuanzang"
   },
@@ -130,7 +135,7 @@ If you would like to join this discussion, please contact one of the contributor
 // **
 // PERSON
 // **
-{
+
   "@id": "https://en.wikipedia.org/wiki/Kʼinich_Janaabʼ_Pakal",
   "type": "Person",
   "dc:title": "Kʼinich Janaabʼ Pakal",
@@ -144,7 +149,10 @@ If you would like to join this discussion, please contact one of the contributor
   "dc:subject": ["Maya","ajaw"]
 }
 // ANNOTATIONS
-{ "@context":"http://www.w3.org/ns/anno.jsonld",
+{ "@context":[
+    "http://www.w3.org/ns/anno.jsonld",
+    { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}
+  ],
   "id": "http://my.org/annotations/92837",
   "type": "Annotation",
   "creator": {
@@ -165,7 +173,7 @@ If you would like to join this discussion, please contact one of the contributor
     // ... etc.
   ],
   "target": {
-    "id": "http://my.org/people/80001",
+    "id": "https://en.wikipedia.org/wiki/Kʼinich_Janaabʼ_Pakal",
     "type": "lpo:Person",
     "dc:title" "Kʼinich Janaabʼ Pakal"
   },
@@ -186,8 +194,11 @@ If you would like to join this discussion, please contact one of the contributor
   "dc:subject": ["Maya","gods","goddesses"]
 }
 // ANNOTATIONS
-{ "@context":"http://www.w3.org/ns/anno.jsonld",
-  "id": "http://my.org/annotations/92837",
+{ "@context":[
+    "http://www.w3.org/ns/anno.jsonld",
+    { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}
+  ],
+  "id": "http://my.org/annotations/92900",
   "type": "Annotation",
   "creator": {
     "id":"http://example.org/people/2345",
@@ -229,7 +240,10 @@ If you would like to join this discussion, please contact one of the contributor
   "dc:subject": ["Maya","gods"]
 }
 // ANNOTATIONS
-{ "@context":"http://www.w3.org/ns/anno.jsonld",
+{ "@context":[
+    "http://www.w3.org/ns/anno.jsonld",
+    { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}
+  ],
   "id": "http://my.org/annotations/92837",
   "type": "Annotation",
   "creator": {
@@ -253,8 +267,9 @@ If you would like to join this discussion, please contact one of the contributor
 }
 
 // ***
-// Linked Pasts context
+// Linked Pasts context (to be developed, with supporting ontology)
 // ***
+// "http://linkedpasts.org/ontology/lpo.jsonld"
 {
   "@context": {
     "lpo": "http://linkedpasts.org/ontology/#",
@@ -266,11 +281,11 @@ If you would like to join this discussion, please contact one of the contributor
     "waypoint":           "lpo:waypoint",
     "findspot":           "lpo:findspot",
     "birthplace":         "lpo:birthplace",
-    "deathplace":         "lpo:deathplace"
+    "deathplace":         "lpo:deathplace",
+    // ...
   }
-}
-```
+}```
 ---
-Contributors: Karl Grossner (@kgeographer); Rainer Simon (@rsimon)
+Contributors: Karl Grossner (t,gh: @kgeographer); Rainer Simon (t: @aboutgeo, gh:@rsimon)
 
 

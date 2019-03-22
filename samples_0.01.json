@@ -1,13 +1,12 @@
 // CONTEXTS
-// see lpo context below
-{
-  "@context":[
+// see below
+{"@context":[
     "http://www.w3.org/ns/anno.jsonld",
     { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}
   ]
 }
 
-// types: HistoricalProcess, Journey, Person, Text (Work?), Artifact
+// types: HistoricalProcess, Journey, Person, Text/Work, Artifact
 
 // **
 // EVENT (PROCESS)
@@ -20,11 +19,14 @@
   "lpo:when": {"timespans":[
     {"start":{"in":"633"},"":{"in":"652"}}
   ]},
-  "language": "en",
+  "language": "en", // use choice array?
   "dc:subject": ["cultural diffusion", "Islam"]
 }
 // ANNOTATIONS
-{ "@context":"http://www.w3.org/ns/anno.jsonld",
+{ "@context":[
+    "http://www.w3.org/ns/anno.jsonld",
+    { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}
+  ],
   "id": "http://my.org/annotations/92837",
   "type": "Annotation",
   "creator": {
@@ -73,7 +75,10 @@
   "dc:subject": ["Buddhism","pilgrimage"]
 }
 // ANNOTATIONS
-{ "@context":"http://www.w3.org/ns/anno.jsonld",
+{ "@context":[
+    "http://www.w3.org/ns/anno.jsonld",
+    { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}
+  ],
   "id": "http://my.org/annotations/92837",
   "type": "Annotation",
   "creator": {
@@ -101,7 +106,7 @@
     // ... etc.
   ],
   "target": {
-    "id": "http://my.org/event/90001",
+    "id": "http://my.org/events/90001",
     "type": "lpo:Journey",
     "dc:title" "Pilgrimage of Xuanzang"
   },
@@ -110,7 +115,7 @@
 // **
 // PERSON
 // **
-{
+
   "@id": "https://en.wikipedia.org/wiki/Kʼinich_Janaabʼ_Pakal",
   "type": "Person",
   "dc:title": "Kʼinich Janaabʼ Pakal",
@@ -124,7 +129,10 @@
   "dc:subject": ["Maya","ajaw"]
 }
 // ANNOTATIONS
-{ "@context":"http://www.w3.org/ns/anno.jsonld",
+{ "@context":[
+    "http://www.w3.org/ns/anno.jsonld",
+    { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}
+  ],
   "id": "http://my.org/annotations/92837",
   "type": "Annotation",
   "creator": {
@@ -145,7 +153,7 @@
     // ... etc.
   ],
   "target": {
-    "id": "http://my.org/people/80001",
+    "id": "https://en.wikipedia.org/wiki/Kʼinich_Janaabʼ_Pakal",
     "type": "lpo:Person",
     "dc:title" "Kʼinich Janaabʼ Pakal"
   },
@@ -166,8 +174,11 @@
   "dc:subject": ["Maya","gods","goddesses"]
 }
 // ANNOTATIONS
-{ "@context":"http://www.w3.org/ns/anno.jsonld",
-  "id": "http://my.org/annotations/92837",
+{ "@context":[
+    "http://www.w3.org/ns/anno.jsonld",
+    { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}
+  ],
+  "id": "http://my.org/annotations/92900",
   "type": "Annotation",
   "creator": {
     "id":"http://example.org/people/2345",
@@ -209,7 +220,10 @@
   "dc:subject": ["Maya","gods"]
 }
 // ANNOTATIONS
-{ "@context":"http://www.w3.org/ns/anno.jsonld",
+{ "@context":[
+    "http://www.w3.org/ns/anno.jsonld",
+    { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}
+  ],
   "id": "http://my.org/annotations/92837",
   "type": "Annotation",
   "creator": {
@@ -233,8 +247,9 @@
 }
 
 // ***
-// Linked Pasts context
+// Linked Pasts context (to be developed, with supporting ontology)
 // ***
+// "http://linkedpasts.org/ontology/lpo.jsonld"
 {
   "@context": {
     "lpo": "http://linkedpasts.org/ontology/#",
@@ -246,6 +261,7 @@
     "waypoint":           "lpo:waypoint",
     "findspot":           "lpo:findspot",
     "birthplace":         "lpo:birthplace",
-    "deathplace":         "lpo:deathplace"
+    "deathplace":         "lpo:deathplace",
+    // ...
   }
 }
