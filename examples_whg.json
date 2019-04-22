@@ -1,0 +1,216 @@
+[
+  { "@context":[
+      "http://www.w3.org/ns/anno.jsonld",
+      { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}
+    ],
+    "id": "http://example.org/annotations/54322",
+    "type": "Annotation",
+    "creator": {
+      "id":"https://orcid.org/0000-0002-4066-8297",
+      "name":"Karl Grossner",
+      "homepage":"http://kgeographer.org"
+    },
+    "created": "2019-04-07",
+    "motivation": "linking",
+    "body": [
+      { "id": 
+        "http://whgazetteer.org/api/places/12377116", 
+        "when": [{"end": "0630", "start": "0630"}], 
+        "title": "Balkh", "whg_id": 12377116, 
+        "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12377800", "when": [{"end": "0644", "start": "0644"}], "title": "Cherchen", "whg_id": 12377800, "relation": "waypoint"},
+      {"id": "http://geonames.org/7096609", "when": [{"end": "0630", "start": "0630"}], "title": "Darel", "whg_id": null, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12378946", "when": [{"end": "0629", "start": "0629"}], "title": "Hami", "whg_id": 12378946, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12379455", "when": [{"end": "0636", "start": "0636"}], "title": "Kapilavastu", "whg_id": 12379455, "relation": "waypoint"},
+      {"id": "http://geonames.org/1257137", "when": [{"end": "0637", "start": "0637"}], "title": "Sarnath and Varanasi", "whg_id": null, "relation": "waypoint"},
+      {"id": "http://geonames.org/1271883", "when": [{"end": "0633", "start": "0633"}, {"end": "0634", "start": "0634"}], "title": "Chinabhukti", "whg_id": null, "relation": "waypoint"},
+      {"id": "http://geonames.org/1278718", "when": [{"end": "0639", "start": "0639"}], "title": "Dhanakataka", "whg_id": null, "relation": "waypoint"},
+      {"id": "http://geonames.org/1142170", "when": [{"end": "0644", "start": "0644"}], "title": "Faizabad", "whg_id": null, "relation": "waypoint"},
+      {"id": "http://geonames.org/1268782", "when": [{"end": "0634", "start": "0634"}], "title": "Jalandhara", "whg_id": null, "relation": "waypoint"},
+      {"id": "http://geonames.org/1529031", "when": [{"end": "0630", "start": "0630"}], "title": "Karashahr", "whg_id": null, "relation": "waypoint"},
+      {"id": "http://vocab.getty.edu/page/tgn/1111618", "when": [{"end": "0638", "start": "0638"}, {"end": "0642", "start": "0642"}], "title": "Assam", "whg_id": null, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12376709", "when": [{"end": "0630", "start": "0630"}], "title": "Aksu", "whg_id": 12376709, "relation": "waypoint"},
+      {"id": "http://geonames.org/1148671", "when": [{"end": "0644", "start": "0644"}], "title": "Andarab", "whg_id": null, "relation": "waypoint"},
+      {"id": "http://geonames.org/1529004", "when": [{"end": "0629", "start": "0629"}, {"end": "0645", "start": "0645"}], "title": "An-hsi", "whg_id": null, "relation": "waypoint"},
+      {"id": "http://geonames.org/1184249", "when": [{"end": "0630", "start": "0630"}], "title": "Attock", "whg_id": null, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12377073", "when": [{"end": "0636", "start": "0636"}], "title": "Ayodhya", "whg_id": 12377073, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12377126", "when": [{"end": "0630", "start": "0630"}], "title": "Bamiyan", "whg_id": 12377126, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12377293", "when": [{"end": "0641", "start": "0641"}], "title": "Bharukaccha", "whg_id": 12377293, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12377365", "when": [{"end": "0637", "start": "0637"}], "title": "Bodh Gaya", "whg_id": 12377365, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12377782", "when": [{"end": "0630", "start": "0630"}], "title": "Charsadda", "whg_id": 12377782, "relation": "waypoint"},
+      {"id": "http://geonames.org/1790630", "when": [{"end": "0629", "start": "0629"}, {"end": "0645", "start": "0645"}], "title": "Chang'an", "whg_id": null, "relation": "waypoint"},
+      {"id": "http://geonames.org/1280122", "when": [{"end": "0644", "start": "0644"}], "title": "Charkhlik", "whg_id": null, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12381275", "when": [{"end": "0637", "start": "0637"}, {"end": "0642", "start": "0642"}], "title": "Nalanda", "whg_id": 12381275, "relation": "waypoint"},
+      {"id": "http://geonames.org/1139715", "when": [{"end": "0630", "start": "0630"}], "title": "Nagarahara", "whg_id": null, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12383292", "when": [{"end": "0637", "start": "0637"}], "title": "Vaisali", "whg_id": 12383292, "relation": "waypoint"},
+      {"id": "http://vocab.getty.edu/page/tgn/8697521", "when": [{"end": "0636", "start": "0636"}], "title": "Sravasti", "whg_id": null, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12375893", "when": [{"end": "0639", "start": "0639"}], "title": "Tamrallipti", "whg_id": 12375893, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12379440", "when": [{"end": "0639", "start": "0639"}, {"end": "0640", "start": "0640"}], "title": "Kancipuram", "whg_id": 12379440, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12379454", "when": [{"end": "0635", "start": "0635"}, {"end": "0636", "start": "0636"}], "title": "Kanyakubja", "whg_id": 12379454, "relation": "waypoint"},
+      {"id": "http://geonames.org/1263879", "when": [{"end": "0635", "start": "0635"}], "title": "Matipura", "whg_id": null, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12379456", "when": [{"end": "0630", "start": "0630"}], "title": "Kapisi", "whg_id": 12379456, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12379484", "when": [{"end": "0644", "start": "0644"}], "title": "Kashgar", "whg_id": 12379484, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12379505", "when": [{"end": "0636", "start": "0636"}], "title": "Kausambi", "whg_id": 12379505, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12379560", "when": [{"end": "0644", "start": "0644"}], "title": "Khotan", "whg_id": 12379560, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12379682", "when": [{"end": "0630", "start": "0630"}], "title": "Kucha", "whg_id": 12379682, "relation": "waypoint"},
+      {"id": "http://geonames.org/1278994", "when": [{"end": "0642", "start": "0642"}, {"end": "0643", "start": "0643"}], "title": "Prayaga", "whg_id": null, "relation": "waypoint"},
+      {"id": "http://geonames.org/1164909", "when": [{"end": "0633", "start": "0633"}], "title": "Sakala", "whg_id": null, "relation": "waypoint"},
+      {"id": "http://geonames.org/1216265", "when": [{"end": "0630", "start": "0630"}], "title": "Samarkand", "whg_id": null, "relation": "waypoint"},
+      {"id": "http://geonames.org/1257373", "when": [{"end": "0635", "start": "0635"}], "title": "Sankasya", "whg_id": null, "relation": "waypoint"},
+      {"id": "http://geonames.org/7074006", "when": [{"end": "0630", "start": "0630"}], "title": "Shabaz Gharhi", "whg_id": null, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12379716", "when": [{"end": "0636", "start": "0636"}, {"end": "0637", "start": "0637"}], "title": "Kusinagara", "whg_id": 12379716, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12379878", "when": [{"end": "0629", "start": "0629"}], "title": "Liangzhou", "whg_id": 12379878, "relation": "waypoint"},
+      {"id": "http://geonames.org/1279901", "when": [{"end": "0644", "start": "0644"}], "title": "Tashkurghan", "whg_id": null, "relation": "waypoint"},
+      {"id": "http://geonames.org/1527199", "when": [{"end": "0630", "start": "0630"}], "title": "Tokmak", "whg_id": null, "relation": "waypoint"},
+      {"id": "http://geonames.org/1529531", "when": [{"end": "0644", "start": "0644"}], "title": "Tun-huang", "whg_id": null, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12379982", "when": [{"end": "0644", "start": "0644"}], "title": "Loulan", "whg_id": 12379982, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12380013", "when": [{"end": "0636", "start": "0636"}], "title": "Lumbini", "whg_id": 12380013, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12380230", "when": [{"end": "0634", "start": "0634"}], "title": "Mathura", "whg_id": 12380230, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12381206", "when": [{"end": "0641", "start": "0641"}], "title": "Multan", "whg_id": 12381206, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12381313", "when": [{"end": "0640", "start": "0640"}, {"end": "0641", "start": "0641"}], "title": "Nasik", "whg_id": 12381313, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12381432", "when": [{"end": "0644", "start": "0644"}], "title": "Niya", "whg_id": 12381432, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12381710", "when": [{"end": "0637", "start": "0637"}], "title": "Pataliputra", "whg_id": 12381710, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12381773", "when": [{"end": "0630", "start": "0630"}], "title": "Peshawar", "whg_id": 12381773, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12382550", "when": [{"end": "0630", "start": "0630"}, {"end": "0633", "start": "0633"}], "title": "Shrinigar", "whg_id": 12382550, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12382909", "when": [{"end": "0630", "start": "0630"}], "title": "Tashkent", "whg_id": 12382909, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12382919", "when": [{"end": "0643", "start": "0643"}, {"end": "0644", "start": "0644"}], "title": "Taxila", "whg_id": 12382919, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12383196", "when": [{"end": "0629", "start": "0629"}, {"end": "0630", "start": "0630"}], "title": "Turfan", "whg_id": 12383196, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12383246", "when": [{"end": "0641", "start": "0641"}], "title": "Ujjayini", "whg_id": 12383246, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12383639", "when": [{"end": "0644", "start": "0644"}], "title": "Yarkand", "whg_id": 12383639, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12384667", "when": [{"end": "0630", "start": "0630"}, {"end": "0644", "start": "0644"}], "title": "Kunduz", "whg_id": 12384667, "relation": "waypoint"},
+      {"id": "http://whgazetteer.org/api/places/12376688", "when": [{"end": "0641", "start": "0641"}], "title": "Ajanta", "whg_id": 12376688, "relation": "waypoint"}
+    ],
+    "target": {
+      "id": "http://www.worldcat.org/oclc/833253277",
+      "type": ["Journey","Text"],
+      "title": "Xuanzang : a Buddhist pilgrim on the Silk Road"
+    }
+  },
+  { 
+    "@context":[
+      "http://www.w3.org/ns/anno.jsonld",
+      { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}
+    ],
+    "id": "http://example.org/annotations/54321",
+    "type": "Annotation",
+    "creator": {
+      "id":"https://orcid.org/0000-0002-4066-8297",
+      "name":"Karl Grossner",
+      "homepage":"http://kgeographer.org"
+    },
+    "created": "2019-04-09",
+    "motivation": "linking",
+    "body": [
+      { "id": "http://whgazetteer.org/places/12380013",
+        "title": "Lumbini",
+        "relation": "birthplace",
+        "when": [{"earliest": "-0563", "latest": "-0480"}],
+        "whg_id": 12380013
+      },
+      { "id": "http://whgazetteer.org/places/12379716",
+        "title": "Kusinagara",
+        "relation": "deathplace",
+        "when": [{"earliest": "-0483", "latest": "-0400"}],
+        "whg_id": 12379716
+      },
+      { "id": "http://whgazetteer.org/places/12380077",
+        "title": "Magadha",
+        "relation": "taught",
+        "whg_id": 12380077
+      },
+      { "id": "http://whgazetteer.org/places/12384654",
+        "title": "Koshala",
+        "relation": "taught",
+        "whg_id": 12384654
+      },
+      { "id": "http://whgazetteer.org/places/12379455",
+        "title": "Kapilavastu",
+        "relation": "resided",
+        "whg_id": 12379455
+      },
+      { "id": "http://whgazetteer.org/places/12382078",
+        "title": "Rajagriha",
+        "relation": "resided",
+        "whg_id": 12382078
+      },
+      { "id": "http://whgazetteer.org/places/12377365",
+        "title": "Bodh Gaya",
+        "relation": "enlightened",
+        "when": [{"earliest": "-0528", "latest": "-0445"}],
+        "whg_id": 12377365
+      },
+      { "id": "http://vocab.getty.edu/page/tgn/7001588",
+        "title": "Sarnath",
+        "relation": "resided",
+        "whg_id": null
+      },
+      { "id": "http://vocab.getty.edu/page/tgn/7573384",
+        "title": "Indo-Gangetic Plain",
+        "relation": "resided",
+        "whg_id": null
+      }
+    ],
+    "target": {
+      "id": "https://en.wikipedia.org/wiki/Gautama_Buddha",
+      "type": ["Person"],
+      "title": "Gautama Buddha"
+    }
+  },
+  { 
+    "@context":[
+      "http://www.w3.org/ns/anno.jsonld",
+      { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}
+    ],
+    "id": "http://example.org/annotations/54321",
+    "type": "Annotation",
+    "creator": {
+      "id":"https://orcid.org/0000-0002-4066-8297",
+      "name":"Karl Grossner",
+      "homepage":"http://kgeographer.org"
+    },
+    "created": "2019-04-10",
+    "motivation": "linking",
+    "body": [
+      { "id": "http://whgazetteer.org/places/12379560",
+        "title": "Khotan",
+        "relation": "ruled",
+        "when": [{"earliest": "0912", "latest": "0966"}],
+        "whg_id": 12379560
+      }
+    ],
+    "target": {
+      "id": "https://en.wikipedia.org/wiki/Li_Shengtian",
+      "type": ["Person"],
+      "title": "Li Shengtian",
+      "depiction": "https://upload.wikimedia.org/wikipedia/commons/4/48/YuTian.jpg"
+    }
+  },
+  { 
+    "@context":[
+      "http://www.w3.org/ns/anno.jsonld",
+      { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}
+    ],
+    "id": "http://example.org/annotations/54322",
+    "type": "Annotation",
+    "creator": {
+      "id":"https://orcid.org/0000-0002-4066-8297",
+      "name":"Karl Grossner",
+      "homepage":"http://kgeographer.org"
+    },
+    "created": "2019-04-10",
+    "motivation": "linking",
+    "body": [
+      { "id": "http://whgazetteer.org/places/12379560",
+        "title": "Khotan",
+        "relation": "findspot",
+        "when": [{"earliest": "0400", "latest": "0700"}],
+        "whg_id": 12379560
+        }
+      ],
+    "target": 
+      { "id": "https://www.britishmuseum.org/explore/a_history_of_the_world/objects.aspx#9",
+        "type": ["Artifact"],
+        "title": "Silk princess painting"
+      }
+  }
+]
