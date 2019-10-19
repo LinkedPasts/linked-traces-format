@@ -14,7 +14,7 @@ In this new conception, Linked Traces amounts to a set of use patterns for the W
 - more motivations and use scenarios, e.g. transcriptions of page images
 - more detailed content within, or referenced by, the annotation Body
 
-###Issues
+### Issues
 
 1. What are use scenarios for Linked Traces annotations?
 2. What should be the model patterns for annotation Body RDF in each domain/scenario?
