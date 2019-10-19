@@ -29,16 +29,121 @@ A preliminary list, to be expanded. *NB: W3C Annotations are specified using JSO
 > The [World Historical Gazetteer](http://whgazetteer.org) (WHG) and [Peripleo](http://peripleo.pelagios.org) platforms solicit trace annotation contributions, the bodies of which include RDF expressing a setting (a place IRI and optional 'when' statement) and its relation to the entity referenced by the Target (e.g. 'waypoint', or 'findspot'). WHG software will display (and return via API), for an indexed place, any contributed traces associated with it, exposing the Target IRI and the 'when' and 'related' properties embedded in the Body. In this way, traces provide enhanced place description for users of WHG, e.g. place1234 was a waypoint on these several journeys centuries apart, was the findspot for these several artifacts, and was among the settings for this complex historical event. 
 
 ```
+# places in the lifepath of Gautama Bhudda; json array in body.value
+
+{ "@context":["http://www.w3.org/ns/anno.jsonld",
+    { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}],
+  "id": "http://example.org/annotations/12345",
+  "type": "Annotation",
+  "creator": {
+    "id":"https://orcid.org/0000-1234-2345-6789",
+    "name":"Anne Annotator",
+    "homepage":"http://annotationist.org"
+  },
+  "created": "2019-10-18",
+  "motivation": "describing",
+  "target": [{
+    "id": "https://en.wikipedia.org/wiki/Gautama_Buddha",
+    "type": "Text",
+    "format": "text/html",
+    "title": "Gautama_Buddha"
+  }],
+  "body": {
+    "type": "Dataset",
+    "format": "application/json",
+    "value": [{ 
+      "id": "http://whgazetteer.org/places/86438",
+      "title": "Lumbini",
+      "relation": "lpo:birthplace",
+      "when": {"timespans":[{"start": "-0563/-0480"}]}
+    },{ 
+      "id": "http://whgazetteer.org/places/86001",
+      "lpo:title": "Kusinagara",
+      "lpo:relation": "lpo:deathplace",
+      "lpo:when": {"timespans":[{"start": "-0483/-0400"}]}
+    }]
+  }
+}
 ```
 
-- **The transcription case**: Annotations of archival page images with structured transcriptions of them.
+- **Transcription case #1**: Annotations of archival page images with structured transcriptions of them.
 
 > [Free UK Genealogy](https://freeukgenealogy.org/) is organizing transcription of archival birth registries, which which they will store as RDF and make available via an API. In this case, the page image is the annotation Target (with an IRI as "id"), and the Body could either be only another IRI, to the transcription record for the page, or it could embed that RDF as media type application/rdf in a "value" field.
 
-> The [Recogito]() tool allows users to annotate images, ...
+> Body type A (external:
 
 ```
+{
+  "@context": "http://www.w3.org/ns/anno.jsonld",
+  "id": "http://example.org/anno_0001",
+  "type": "Annotation",
+  "license”: "<https://opendatacommons.org/licenses/odbl/1-0/>”,
+  "creator”: "https://freeukgenealogy.org/volunteers/richardofsussex",
+  "created": "2017-05-24",
+  "motivation”: "transcription”,
+  "target": {
+    "type": "Image",
+    "id": "https://freeukgenealogy.org/data/b65432"
+  },
+  "body": {
+    "type": "Dataset",
+    "format": "application/rdf"
+    "id”: "http://example.org/birthregistration/1234”
+  }
+}
 ```
+> Body type B: (local)
+> 
+
+```
+  "body": {
+    "type": "Dataset",
+    "format": "application/rdf"
+    "value”: '
+        @prefix fugont: <https://freeukgenealogy.org/ontology.rdf#> .
+        @prefix freeukgen: <https://freeukgenealogy.org/data/> .
+        @prefix fugregdist: <https://freeukgenealogy.org/registrationdistricts/> .
+        @prefix fugreg: <https://freeukgenealogy.org/registers/> .
+        @prefix dc: <http://purl.org/dc/elements/1.1/> .
+        @prefix dcterms: <http://dublincore.org/documents/2012/06/14/dcmi-terms/> .
+        @prefix crm: <http://www.cidoc-crm.org/sites/default/files/cidoc_crm_v6.2-draft-2015August.rdfs#> .
+        freeukgen:bmd12345 a fugont:transcription;
+        	crm:P70_documents freeukgen:be23456;
+        	dc:creator fugvol:richardofsussex;
+        	dc:date "2017-05-24"^^xsd:date;
+        	dcterms:license <https://opendatacommons.org/licenses/odbl/1-0/> . 
+        freeukgen:be23456 a fugont:registrationevent;
+        	crm:P70_documents  freeukgen:b65432;
+        	crm:P7_took_place_at fugregdist:Droxford;
+        	crm:P70i_is_documented_in fugreg:Droxford_7_72;
+        	crm:P4_has_time_span [
+        		crm:P82a_begin_of_the_begin "1850-07-01T00:00:00"^^xsd:dateTime; 
+        		crm:P82b_end_of_the_end "1850-09-30T23:59:59"^^xsd:dateTime .
+        	] .
+        freeukgen:b65432 a crm:E67_Birth;
+        	crm:P98_brought_into_life freeukgen:b65432_child;
+        	crm:P96_by_mother freeukgen:b65432_mother;
+        	crm:P97_from_father freeukgen:b65432_father;
+        	crm:P4_has_time_span [
+        		crm:P82a_begin_of_the_begin "1849-07-01T00:00:00"^^xsd:dateTime; 
+        		crm:P82b_end_of_the_end "1850-09-30T23:59:59"^^xsd:dateTime .
+        	] .
+        freeukgen:b65432_child a crm:E21_Person;
+        	crm:P1_is_identified_by "Light, Thomas Edward" .   
+    '
+  }
+
+```
+
+- **Transcription case #2**: Annotations of ___ with ___.
+
+> The [Recogito](http://recogito.pelagios.org) tool allows users to annotate images, ...
+> 
+
+```
+sample record
+```
+<br/>
 ---
 **Contributors**: Karl Grossner (t,gh: @kgeographer); Rainer Simon (t: @aboutgeo, gh:@rsimon), Richard Light (t: @RichardOfSussex, Johannes Scholtz (t:@Joe_GISc)
 
