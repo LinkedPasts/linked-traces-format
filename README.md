@@ -147,6 +147,7 @@ RDF transcription of data from an image of a birth register page
 sample record
 ```
 <br/>
+
 ---
 **Contributors**: Karl Grossner (t,gh: @kgeographer); Rainer Simon (t: @aboutgeo, gh:@rsimon), Richard Light (t: @RichardOfSussex, Johannes Scholtz (t:@Joe_GISc)
 
