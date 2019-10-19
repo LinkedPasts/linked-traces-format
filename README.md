@@ -1,10 +1,10 @@
 ## Linked Traces annotations
 **_v0.2 Draft for comment, 19 October 2019._** 
 
-*Pursuant to suggestions, the scope of Linked Traces has been expanded. In the first draft ([v0.1](README_20190321.md)) only annotations having place identifier content were considered, in order to meet requirements of the [Peripleo](http://peripleo.pelagios.org) and [World Historical Gazetteer](http://whgazetteer.org) platforms. By consensus, Linked Traces should concern Web Annotations of historical entities more generally, and include or reference multiple domain- and application-specific patterns.*
+*Pursuant to suggestions, the scope of Linked Traces has been modified. In the first draft ([v0.1](README_20190321.md)) only annotations having place identifier content were considered, in order to meet requirements of the [Peripleo](http://peripleo.pelagios.org) and [World Historical Gazetteer](http://whgazetteer.org) platforms. By consensus, Linked Traces should concern Web Annotations of historical entities more generally, and include or reference multiple domain- and application-specific patterns.*
 
 ### Traces
-The term "trace" refers to annotations of records about historical entities of any kind. Trace data takes the form of a [W3C web annotations](https://www.w3.org/TR/annotation-model/). The annotation **_Target_** is a _web resource_ [1], and the annotation **_Body_** either embeds RDF as text in a "value" or "textBody" attribute or links to an external RDF record with its "id" attribute.
+The term "trace" refers to annotations of records about historical entities of any kind. Trace data takes the form of a [W3C web annotations](https://www.w3.org/TR/annotation-model/). The annotation **_Target_** is a web resource of any type (Text, Image, Dataset, Video, Sound), and the annotation **_Body_** either embeds RDF as text in a "value" or "textBody" attribute, or links to an external RDF record with its "id" attribute. Annotations have **motivations**, which  include *describing*, *linking*, *classifying*, and *tagging*. New motivations can be created; e.g. *transcribing* seems useful.
 
 Traces have already been indexed and displayed in the [Peripleo web application](http://peripleo.pelagios.org) developed by Rainer Simon for the [Pelagios](http://commons.pelagios.org) project; to date these are principally records of coins and inscriptions annotated with identifiers for places as "findspots" in the Classical Mediterranean region. 
 
