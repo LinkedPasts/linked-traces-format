@@ -71,9 +71,11 @@ A preliminary list, to be expanded. *NB: W3C Annotations are specified using JSO
 
 > [Free UK Genealogy](https://freeukgenealogy.org/) is organizing transcription of archival birth registries, which which they will store as RDF and make available via an API. In this case, the page image is the annotation Target (with an IRI as "id"), and the Body could either be only another IRI, to the transcription record for the page, or it could embed that RDF as media type application/rdf in a "value" field.
 
-> Body type A (external:
+> Body type A (external):
 
 ```
+RDF transcription of data from an image of a birth register page 
+
 {
   "@context": "http://www.w3.org/ns/anno.jsonld",
   "id": "http://example.org/anno_0001",
@@ -93,7 +95,7 @@ A preliminary list, to be expanded. *NB: W3C Annotations are specified using JSO
   }
 }
 ```
-> Body type B: (local)
+> Body type B: (embedded)
 > 
 
 ```
