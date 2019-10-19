@@ -18,7 +18,8 @@ In this new conception, Linked Traces amounts to a set of use patterns for the W
 
 1. What are use scenarios for Linked Traces annotations?
 2. What should be the model patterns for annotation Body RDF in each domain/scenario?
-3. Are those patterns outside the scope of this work? 
+3. Are those patterns outside the scope of this work?
+4. When should Body RDF be embedded as opposed to externally linked to?
 
 ### Scenarios and examples
 
