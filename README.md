@@ -1,291 +1,44 @@
-## The Linked Traces annotation format
-*v0.1 Draft for comment, 21 Mar 2019*
+## Linked Traces annotations
+**_v0.2 Draft for comment, 19 October 2019._** 
+
+*Pursuant to suggestions, the scope of Linked Traces has been expanded. In the first draft ([v0.1](README_20190321.md)) only annotations having place identifier content were considered, in order to meet requirements of the [Peripleo](http://peripleo.pelagios.org) and [World Historical Gazetteer](http://whgazetteer.org) platforms. By consensus, Linked Traces should concern Web Annotations of historical entities more generally, and include or reference multiple domain- and application-specific patterns.*
 
 ### Traces
-The term "trace" refers to historical entities for which there is spatial-temporal data of interest. Trace data takes the form of [W3C web annotations](https://www.w3.org/TR/annotation-model/). The **_target_** is a LOD web-published record of some entity, and the **_body_** (annotation) contains one or more place record URIs, a relation between a place and the target entity, and an optional temporal scoping for each.
+The term "trace" refers to annotations of records about historical entities of any kind. Trace data takes the form of a [W3C web annotations](https://www.w3.org/TR/annotation-model/). The annotation **_Target_** is a _web resource_ [1], and the annotation **_Body_** either embeds RDF as text in a "value" or "textBody" attribute or links to an external RDF record with its "id" attribute.
 
-Traces have already been indexed and displayed in the [Peripleo web application](http://peripleo.pelagios.org) developed by Rainer Simon for the [Pelagios](http://commons.pelagios.org) project; to date these are principally records of coins and inscriptions annotated with find spots in the Classical Mediterranean region. This new Linked Traces format is designed to better accommodate more kinds of traces, including not only **artifacts**, but **events** of all kinds, **people**, and **works**.
+Traces have already been indexed and displayed in the [Peripleo web application](http://peripleo.pelagios.org) developed by Rainer Simon for the [Pelagios](http://commons.pelagios.org) project; to date these are principally records of coins and inscriptions annotated with identifiers for places as "findspots" in the Classical Mediterranean region. 
 
-The Linked Traces annotation format (LT format) will supercede the [Pelagios annotation format](https://github.com/pelagios/pelagios-cookbook/wiki/Joining-Pelagios) (under _The Dataset Summary_ > _Minimum Example_) as a template for contributions of trace data to both [World-Historical Gazeetteer](http://whgazetteer.org) and [Pelagios](http://commons.pelagios.org). Hopefully it will be found useful and adopted in other projects.
+In this new conception, Linked Traces amounts to a set of use patterns for the W3C Web Annotation [model](https://www.w3.org/TR/annotation-model/) and [vocabulary](https://www.w3.org/TR/annotation-vocab) to accommodate 
 
+- more kinds of historical entities (not only **artifacts**, but **events** of all kinds, **people**, and **works**, broadly construed), 
+- more motivations and use scenarios, e.g. transcriptions of page images
+- more detailed content within, or referenced by, the annotation Body
 
-### Draft Examples
-First take examples for an LT format are stored [here](https://github.com/LinkedPasts/linked-traces-format/blob/master/samples_0.01.json) and represented below for convenience. A small working group will refine the model, ensuring it a) meets requirements for a variety of use cases and b) conforms to the [W3C Web Annotation Data Model](https://www.w3.org/TR/annotation-model/), [W3C Web Annotation Vocabulary](https://www.w3.org/TR/annotation-vocab/), and more generally to the draft spec for [JSON-LD v1.1](https://w3c.github.io/json-ld-syntax/). 
+###Issues
 
-Contribution datasets will include a list of brief records for the annotated items (traces), and a collection of the annotation records themselves.
+1. What are use scenarios for Linked Traces annotations?
+2. What should be the model patterns for annotation Body RDF in each domain/scenario?
+3. Are those patterns outside the scope of this work? 
 
-If you would like to join this discussion, please contact one of the contributors listed below.
+### Scenarios and examples
 
----
+A preliminary list, to be expanded. *NB: W3C Annotations are specified using JSON-LD format (an RDF syntax).*
+
+- **The geographic case**: Annotations of web resources about any sort of historical item with identifiers for relevant places.
+
+> The [World Historical Gazetteer](http://whgazetteer.org) (WHG) and [Peripleo](http://peripleo.pelagios.org) platforms solicit trace annotation contributions, the bodies of which include RDF expressing a setting (a place IRI and optional 'when' statement) and its relation to the entity referenced by the Target (e.g. 'waypoint', or 'findspot'). WHG software will display (and return via API), for an indexed place, any contributed traces associated with it, exposing the Target IRI and the 'when' and 'related' properties embedded in the Body. In this way, traces provide enhanced place description for users of WHG, e.g. place1234 was a waypoint on these several journeys centuries apart, was the findspot for these several artifacts, and was among the settings for this complex historical event. 
+
 ```
-// CONTEXTS
-// see below
-{"@context":[
-    "http://www.w3.org/ns/anno.jsonld",
-    { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}
-  ]
-}
+```
 
-// types: HistoricalProcess, Journey, Person, Text/Work, Artifact
+- **The transcription case**: Annotations of archival page images with structured transcriptions of them.
 
-// **
-// EVENT (PROCESS)
-// **
-{
-  "@id": " http://my.org/event/98765",
-  "type": "lpo:HistoricalProcess ",
-  "dc:title": "Diffusion of Islam",
-  "dc:description": "yada yada, not too long...",
-  "lpo:when": {"timespans":[
-    {"start":{"in":"633"},"":{"in":"652"}}
-  ]},
-  "language": "en", // use choice array?
-  "dc:subject": ["cultural diffusion", "Islam"]
-}
-// ANNOTATIONS
-{ "@context":[
-    "http://www.w3.org/ns/anno.jsonld",
-    { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}
-  ],
-  "id": "http://my.org/annotations/92837",
-  "type": "Annotation",
-  "creator": {
-    "id":"http://example.org/people/1234",
-    "name":"Ima Tracemaker",
-    "homepage":"http://tracemaker.org"
-  },
-  "created": "2019-03-18",
-  "motivation": "linking",
-  "body": [
-    { "id": "http://whgazetteer.org/places/86880",
-      "dc:title": "Medina",
-      "lpo:relation": "source",
-      "lpo:when": {"timespans":[
-        {"start":{"in":"634"},"end":{"in":"634"}}
-      ]}
-    },
-    { "id": "http://whgazetteer.org/places/84774",
-      "dc:title": "Hejaz",
-      "lpo:relation": "target",
-      "lpo:when": {"timespans":[
-        {"start":{"in":"632"},"end":{"in":"634"}}
-      ]}
-    }
-    // ... etc.
-  ],
-  "target": {
-    "id": "http://my.org/event/98765",
-    "type": "lpo:HistoricalProcess",
-    "dc:title" "Diffusion of Islam"
-  },
-}
+> [Free UK Genealogy](https://freeukgenealogy.org/) is organizing transcription of archival birth registries, which which they will store as RDF and make available via an API. In this case, the page image is the annotation Target (with an IRI as "id"), and the Body could either be only another IRI, to the transcription record for the page, or it could embed that RDF as media type application/rdf in a "value" field.
 
-// **
-// EVENT (JOURNEY)
-// **
-{
-  "@id": " http://my.org/event/90001",
-  "type": "lpo:Journey",
-  "dc:title": "Pilgrimage of Xuanzang",
-  "dc:description": "yada yada, not too long...",
-  "lpo:when": {"timespans":[
-    {"start":{"in":"630"},"end":{"in":"645"}}
-  ]},
-  "language": "en",
-  "dc:subject": ["Buddhism","pilgrimage"]
-}
-// ANNOTATIONS
-{ "@context":[
-    "http://www.w3.org/ns/anno.jsonld",
-    { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}
-  ],
-  "id": "http://my.org/annotations/92837",
-  "type": "Annotation",
-  "creator": {
-    "id":"http://example.org/people/2345",
-    "name":"Ima Tracemaker",
-    "homepage":"http://tracemaker.org"
-  },
-  "created": "2019-03-18",
-  "motivation": "linking",
-  "body": [
-    { "id": "http://whgazetteer.org/places/86880",
-      "dc:title": "Tashkent",
-      "lpo:relation": "lpo:waypoint",
-      "lpo:when": {"timespans":[
-        {"start":{"in":"630"},"end":{"in":"630"}}
-      ]}
-    },
-    { "id": "http://whgazetteer.org/places/84774",
-      "dc:title": "Mathura",
-      "lpo:relation": "lpo:waypoint",
-      "lpo:when": {"timespans":[
-        {"start":{"in":"634"},"end":{"in":"634"}}
-      ]}
-    }
-    // ... etc.
-  ],
-  "target": {
-    "id": "http://my.org/events/90001",
-    "type": "lpo:Journey",
-    "dc:title" "Pilgrimage of Xuanzang"
-  },
-}
+> The [Recogito]() tool allows users to annotate images, ...
 
-// **
-// PERSON
-// **
-
-  "@id": "https://en.wikipedia.org/wiki/Kʼinich_Janaabʼ_Pakal",
-  "type": "Person",
-  "dc:title": "Kʼinich Janaabʼ Pakal",
-  "dc:description": "yada yada, not too long...",
-  "lpo:when": {"timespans":[
-    { "start": {"in":"0603-03-21"},
-      "end": {"in":"0683-08-26"}
-    }
-  ]},
-  "language": "en",
-  "dc:subject": ["Maya","ajaw"]
-}
-// ANNOTATIONS
-{ "@context":[
-    "http://www.w3.org/ns/anno.jsonld",
-    { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}
-  ],
-  "id": "http://my.org/annotations/92837",
-  "type": "Annotation",
-  "creator": {
-    "id":"http://example.org/people/2345",
-    "name":"Ima Tracemaker",
-    "homepage":"http://tracemaker.org"
-  },
-  "created": "2019-03-18",
-  "motivation": "linking",
-  "body": [
-    { "id": "http://whgazetteer.org/places/12352710",
-      "dc:title": "Palenque",
-      "lpo:relation": [
-        "lpo:birthplace",
-        "lpo:deathplace"
-      ]
-    }
-    // ... etc.
-  ],
-  "target": {
-    "id": "https://en.wikipedia.org/wiki/Kʼinich_Janaabʼ_Pakal",
-    "type": "lpo:Person",
-    "dc:title" "Kʼinich Janaabʼ Pakal"
-  },
-}
-
-// **
-// TEXT
-// **
-{
-  "@id": "https://lccn.loc.gov/99019900",
-  "type": "Text",
-  "dc:title": "Gods and Goddesses of the Ancient Maya",
-  "dc:description": "yada yada, not too long...",
-  "when": {"timespans":[
-    { "start": {"in":"1999"}}
-  ]},
-  "language": "en",
-  "dc:subject": ["Maya","gods","goddesses"]
-}
-// ANNOTATIONS
-{ "@context":[
-    "http://www.w3.org/ns/anno.jsonld",
-    { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}
-  ],
-  "id": "http://my.org/annotations/92900",
-  "type": "Annotation",
-  "creator": {
-    "id":"http://example.org/people/2345",
-    "name":"Ima Tracemaker",
-    "homepage":"http://tracemaker.org"
-  },
-  "created": "2019-03-18",
-  "motivation": "linking",
-  "body": [
-    { "id": "http://whgazetteer.org/places/12347857",
-      "dc:title": "Copán",
-      "lpo:relation": ["dc:subject"]
-    },
-    { "id": "http://whgazetteer.org/places/12355022",
-      "dc:title": "Tikal",
-      "lpo:relation": ["dc:subject"]
-    },
-    // ... etc.
-  ],
-  "target": {
-    "id": "https://lccn.loc.gov/99019900",
-    "type": "lpo:Text",
-    "dc:title" "Gods and Goddesses of the Ancient Maya"
-  },
-}
-
-// **
-// ARTIFACT
-// **
-{
-  "@id": "https://www.britishmuseum.org/explore/a_history_of_the_world/objects.aspx#9",
-  "type": "lpo:Artifact",
-  "dc:title": "Maya Maize God Statue",
-  "dc:description": "yada yada, not too long...",
-  "lpo:when": {"timespans":[
-    { "start": {"in":"0715"}}
-  ]},
-  "language": "en",
-  "dc:subject": ["Maya","gods"]
-}
-// ANNOTATIONS
-{ "@context":[
-    "http://www.w3.org/ns/anno.jsonld",
-    { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}
-  ],
-  "id": "http://my.org/annotations/92837",
-  "type": "Annotation",
-  "creator": {
-    "id":"http://example.org/people/2345",
-    "name":"Ima Tracemaker"
-  },
-  "created": "2019-03-18",
-  "motivation": "linking",
-  "body": [
-    { "id": "http://whgazetteer.org/places/12347857",
-      "dc:title": "Copán",
-      "relation": ["findspot"]
-    }
-  ],
-  "target": [
-    { "id": "https://www.britishmuseum.org/explore/a_history_of_the_world/objects.aspx#9",
-      "type": "lpo:Artifact",
-      "dc:title" "Maya Maize God Statue"
-    }
-  ],
-}
-
-// ***
-// Linked Pasts context (to be developed, with supporting ontology)
-// ***
-// "http://linkedpasts.org/ontology/lpo.jsonld"
-{
-  "@context": {
-    "lpo": "http://linkedpasts.org/ontology/#",
-    "Event":              "lpo:Event",
-    "HistoricalProcess":  "lpo:HistoricalProcess",
-    "Journey":            "lpo:Journey",
-    "relation":           "lpo:relation",
-    "when":               "lpo:when",
-    "waypoint":           "lpo:waypoint",
-    "findspot":           "lpo:findspot",
-    "birthplace":         "lpo:birthplace",
-    "deathplace":         "lpo:deathplace",
-    // ...
-  }
-}```
+```
+```
 ---
-Contributors: Karl Grossner (t,gh: @kgeographer); Rainer Simon (t: @aboutgeo, gh:@rsimon)
-
+**Contributors**: Karl Grossner (t,gh: @kgeographer); Rainer Simon (t: @aboutgeo, gh:@rsimon), Richard Light (t: @RichardOfSussex, Johannes Scholtz (t:@Joe_GISc)
 

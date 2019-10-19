@@ -1,0 +1,169 @@
+In response to my inquiry about our chllenge, Rob responded this way:
+/*
+There are three possible patterns for this, but first are Web Annotations really the right tool to be using for this?  It sounds like you want something with a stronger data model, rather than a framework for associating resources together.
+
+Option 1:  Machine Readable Body
+
+My preferred solution for these sorts of things is simply to have all of the assertions in the body of the annotation.  In the same way that you might write the place and time in English as a body, it's quite possible to write in XML, JSON, RDF or whatever other syntax is convenient.  This keeps the annotation assertions and the content assertions separate, allowing different agents to be responsible (and hence potentially credited) for them.  The downside is that you need to separately parse the body to understand the content [which is by design, but might be unpalatable].
+
+Option 2: Create a new Motivation
+
+Another option is to create a new motivation that mirrors the predicate/relationship you want to assert, such as yyy:asserting-place-of-birth or zzz:asserting-place-of-creation.
+Then the place is the body and the thing receiving the place is the target. The advantage is that everything is parsed by your annotation system, the disadvantage is that now you've mirrored your entire ontology into a set of motivation extensions -- probably as narrower terms than oa:tagging.
+
+Option 3: Create a new Property
+
+Finally, you could simply add new properties to the model to describe the relationships you want to assert. The advantage is that you're not duplicating your ontology, the downside is that no other system will process your extensions.  The reason we didn't put this into the model is that RDF already has a reification pattern, which is generally unloved and we didn't want to bring it in to scope of the work, as we would start to compete with other standards like LDP.
+
+*/
+/* 
+  EX. 1 BASE
+  Target: Some chapters in a book that describe a journey
+  Bodies: Waypoints (places) on the journey
+*/
+{ "@context":[
+    "http://www.w3.org/ns/anno.jsonld",
+    { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}],
+  "id": "http://example.org/annotations/12345",
+  "type": "Annotation",
+  "creator": {
+    "id":"https://orcid.org/0000-0002-4066-8297",
+    "name":"Karl Grossner",
+    "homepage":"http://kgeographer.org"
+  },
+  "created": "2019-10-18",
+  "motivation": ["linking","describing"],
+  "target": [{
+    "id": "http://www.worldcat.org/oclc/833253277",
+    "type": ["Text"],
+    "title": "Xuanzang : a Buddhist pilgrim on the Silk Road"
+  }],
+  "body": [{}]
+}
+/*
+  Ex. 1, Option 1:  Machine Readable Body
+  Annotation contents is in "value"
+  "type" and "format" guide software implementations as to what to do with it.
+*/
+  '"body": [
+    { "type": "Dataset",
+      "format": "application/json",
+      "value": {
+        "id": "http://whg.org/api/places/4603973", 
+        "when": ["0630"], 
+        "title": "Balkh", 
+        "relation": "waypoint"
+  }}]'
+
+/*
+  Ex. 1, Option 2: Create a new Motivation
+*/
+"motivation": ["lpo:asserting-waypoint"],
+...
+  "body": [
+    { "id": "http://whgazetteer.org/api/places/4603973", 
+      "when": ["0630"], 
+      "title": "Balkh", 
+      "relation": "waypoint"
+    }
+  ]
+
+/*
+  Ex. 1, Option 3: Option 3: Create a new Property
+  Body relations to be defined in a Linked Pasts ontology, lpo:
+  It is not clear that all Body relations refer to the target
+*/
+  "body": [
+    { "id": "http://whgazetteer.org/api/places/4603973", 
+      "when": ["0630"], 
+      "title": "Balkh", 
+      "relation": "waypoint"
+    }, {
+      "etc"
+    }
+  ]
+
+/*
+  Ex. 1, Option 4: remote value (Oct 2019)
+  According to spec, could be only a URI to some resource
+  "type" and "format" guide software implementations as to what to do with it.
+  In this case, WHG would have an endpoint at http://whg.org/api/annotation_bodies/
+*/
+  "body": [
+    { "id": "http://whgazetteer.org/api/annotation_bodies/1234",
+      "type": "Dataset",
+      "format": "application/geo+json"
+    }
+  ]
+}
+
+/* 
+  EX. 2 BASE
+  Target: image of a page from an archival register of births
+  Bodies: a structured transcription of the records on the page
+*/
+
+{ "@context":[
+    "http://www.w3.org/ns/anno.jsonld",
+    { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}],
+  "id": "http://example.org/annotations/12345",
+  "type": "Annotation",
+  "creator": {
+    "id":"fugvol:richardofsussex",
+    "name":"Richard Light",
+    "homepage":"http://geneaology.org"
+  },
+  "created": "2019-10-18",
+  "motivation": ["transcribing"],
+  "target": [{
+    "id": "freeukgen:be23456",
+    "type": ["Image"],
+    "title": "Page n of Birth Registry "
+  }],
+  "body": [{}]
+}
+/*
+  Ex. 2, Option 1:  Machine Readable Body
+  Annotation contents is in "value"
+  "type" and "format" guide software implementations as to what to do with it.
+*/
+  "body": '
+    @prefix fugont: <https://freeukgenealogy.org/ontology.rdf#> .
+    @prefix freeukgen: <https://freeukgenealogy.org/data/> .
+    @prefix fugregdist: <https://freeukgenealogy.org/registrationdistricts/> .
+    @prefix fugvol: <https://freeukgenealogy.org/volunteers/> .
+    @prefix fugreg: <https://freeukgenealogy.org/registers/> .
+    @prefix dc: <http://purl.org/dc/elements/1.1/> .
+    @prefix dcterms: <http://dublincore.org/documents/2012/06/14/dcmi-terms/> .
+    @prefix crm: <http://www.cidoc-crm.org/sites/default/files/cidoc_crm_v6.2-draft-2015August.rdfs#> .
+    freeukgen:be23456 a fugont:registrationevent;
+      crm:P70_documents  freeukgen:b65432;
+      crm:P7_took_place_at fugregdist:Droxford;
+      crm:P70i_is_documented_in fugreg:Droxford_7_72;
+      crm:P4_has_time_span [
+        crm:P82a_begin_of_the_begin "1850-07-01T00:00:00"^^xsd:dateTime; 
+        crm:P82b_end_of_the_end "1850-09-30T23:59:59"^^xsd:dateTime .
+      ] .
+    freeukgen:b65432 a crm:E67_Birth;
+      crm:P98_brought_into_life freeukgen:b65432_child;
+      crm:P96_by_mother freeukgen:b65432_mother;
+      crm:P97_from_father freeukgen:b65432_father;
+      crm:P4_has_time_span [
+        crm:P82a_begin_of_the_begin "1849-07-01T00:00:00"^^xsd:dateTime; 
+        crm:P82b_end_of_the_end "1850-09-30T23:59:59"^^xsd:dateTime .
+      ] .
+    freeukgen:b65432_child a crm:E21_Person;
+      crm:P1_is_identified_by "Light, Thomas Edward" .
+  '
+/*
+  Ex. 2, Option 4: remote value (Oct 2019)
+  According to spec, could be only a URI to some resource
+  "type" and "format" guide software implementations as to what to do with it.
+*/
+  "body": [
+    { "id": "http://example.org/birthregistration/1234",
+      "type": "Dataset",
+      "format": "application/rdf"
+    }
+  ]
+}
