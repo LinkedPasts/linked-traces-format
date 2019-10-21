@@ -143,46 +143,8 @@ RDF transcription of data from an image of a birth register page
 [Recogito](http://recogito.pelagios.org) is an online tool for geo-tagging of text and image documents. In Recogito's case,
 the traces are the annotations that link the geographical references in the document to places in the gazetteer. Annotation bodies are simple, in this case, and point to the gazetteer URIs.
 
-Example 1: Annotations on text
+__Example 1: Annotations on text__
 
-```json
-{
-  "@context" : "http://www.w3.org/ns/anno.jsonld",
-  "id" : "https://recogito.pelagios.org/annotation/041053ec-46f1-4cd9-89cd-1971926b3f97",
-  "type" : "Annotation",
-  "generator" : {
-    "id" : "https://recogito.pelagios.org/",
-    "type" : "Software",
-    "name" : "Recogito",
-    "homepage" : "https://recogito.pelagios.org/"
-  },
-  "generated" : "2019-10-21T10:46:18+00:00",
-  "body" : [ {
-    "type" : "TextualBody",
-    "value" : "Helgapelt",
-    "creator" : "https://recogito.pelagios.org/rainer",
-    "modified" : "2019-10-21T10:46:10+00:00",
-    "purpose" : "transcribing"
-  }, {
-    "type" : "SpecificResource",
-    "value" : "http://sws.geonames.org/3412888",
-    "creator" : "https://recogito.pelagios.org/rainer",
-    "modified" : "2019-10-21T10:46:10+00:00",
-    "purpose" : "identifying"
-  } ],
-  "target" : {
-    "source" : "https://recogito.pelagios.org/part/46c9126b-6904-4229-bfc3-06b40d1834f1",
-    "type" : "Image",
-    "selector" : [ {
-      "type" : "FragmentSelector",
-      "conformsTo" : "http://www.w3.org/TR/media-frags/",
-      "value" : "xywh=pixel:1992,3092,274,274"
-    } ]
-  }
-}
-```
-
-Example 2: Annotations on a digitized old map
 ```json
 {
   "@context" : "http://www.w3.org/ns/anno.jsonld",
@@ -218,6 +180,45 @@ Example 2: Annotations on a digitized old map
         "type" : "XPathSelector",
         "value" : "/TEI[1]/text[1]/body[1]/div[1]/p[2]"
       }
+    } ]
+  }
+}
+```
+
+__Example 2: Annotations on a digitized old map__
+
+```json
+{
+  "@context" : "http://www.w3.org/ns/anno.jsonld",
+  "id" : "https://recogito.pelagios.org/annotation/041053ec-46f1-4cd9-89cd-1971926b3f97",
+  "type" : "Annotation",
+  "generator" : {
+    "id" : "https://recogito.pelagios.org/",
+    "type" : "Software",
+    "name" : "Recogito",
+    "homepage" : "https://recogito.pelagios.org/"
+  },
+  "generated" : "2019-10-21T10:46:18+00:00",
+  "body" : [ {
+    "type" : "TextualBody",
+    "value" : "Helgapelt",
+    "creator" : "https://recogito.pelagios.org/rainer",
+    "modified" : "2019-10-21T10:46:10+00:00",
+    "purpose" : "transcribing"
+  }, {
+    "type" : "SpecificResource",
+    "value" : "http://sws.geonames.org/3412888",
+    "creator" : "https://recogito.pelagios.org/rainer",
+    "modified" : "2019-10-21T10:46:10+00:00",
+    "purpose" : "identifying"
+  } ],
+  "target" : {
+    "source" : "https://recogito.pelagios.org/part/46c9126b-6904-4229-bfc3-06b40d1834f1",
+    "type" : "Image",
+    "selector" : [ {
+      "type" : "FragmentSelector",
+      "conformsTo" : "http://www.w3.org/TR/media-frags/",
+      "value" : "xywh=pixel:1992,3092,274,274"
     } ]
   }
 }
