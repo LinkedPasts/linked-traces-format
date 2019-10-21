@@ -141,7 +141,7 @@ RDF transcription of data from an image of a birth register page
 - **Transcription case #2**: Annotations of ___ with ___.
 
 [Recogito](http://recogito.pelagios.org) is an online tool for geo-tagging of text and image documents. In Recogito's case,
-the traces are the annotations that link the geographical references in the document to places in the gazetteer.
+the traces are the annotations that link the geographical references in the document to places in the gazetteer. Annotation bodies are simple, in this case, and point to the gazetteer URIs.
 
 Example 1: Annotations on text
 
