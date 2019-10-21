@@ -140,12 +140,89 @@ RDF transcription of data from an image of a birth register page
 
 - **Transcription case #2**: Annotations of ___ with ___.
 
-> The [Recogito](http://recogito.pelagios.org) tool allows users to annotate images, ...
-> 
+[Recogito](http://recogito.pelagios.org) is an online tool for geo-tagging of text and image documents. In Recogito's case,
+the traces are the annotations that link the geographical references in the document to places in the gazetteer.
 
+Example 1: Annotations on text
+
+```json
+{
+  "@context" : "http://www.w3.org/ns/anno.jsonld",
+  "id" : "https://recogito.pelagios.org/annotation/041053ec-46f1-4cd9-89cd-1971926b3f97",
+  "type" : "Annotation",
+  "generator" : {
+    "id" : "https://recogito.pelagios.org/",
+    "type" : "Software",
+    "name" : "Recogito",
+    "homepage" : "https://recogito.pelagios.org/"
+  },
+  "generated" : "2019-10-21T10:46:18+00:00",
+  "body" : [ {
+    "type" : "TextualBody",
+    "value" : "Helgapelt",
+    "creator" : "https://recogito.pelagios.org/rainer",
+    "modified" : "2019-10-21T10:46:10+00:00",
+    "purpose" : "transcribing"
+  }, {
+    "type" : "SpecificResource",
+    "value" : "http://sws.geonames.org/3412888",
+    "creator" : "https://recogito.pelagios.org/rainer",
+    "modified" : "2019-10-21T10:46:10+00:00",
+    "purpose" : "identifying"
+  } ],
+  "target" : {
+    "source" : "https://recogito.pelagios.org/part/46c9126b-6904-4229-bfc3-06b40d1834f1",
+    "type" : "Image",
+    "selector" : [ {
+      "type" : "FragmentSelector",
+      "conformsTo" : "http://www.w3.org/TR/media-frags/",
+      "value" : "xywh=pixel:1992,3092,274,274"
+    } ]
+  }
+}
 ```
-sample record
+
+Example 2: Annotations on a digitized old map
+```json
+{
+  "@context" : "http://www.w3.org/ns/anno.jsonld",
+  "id" : "https://recogito.pelagios.org/annotation/533fb599-9e02-4fe2-ae98-6857b6055c22",
+  "type" : "Annotation",
+  "generator" : {
+    "id" : "https://recogito.pelagios.org/",
+    "type" : "Software",
+    "name" : "Recogito",
+    "homepage" : "https://recogito.pelagios.org/"
+  },
+  "generated" : "2019-10-21T10:47:56+00:00",
+  "body" : [ {
+    "type" : "SpecificResource",
+    "value" : "http://pleiades.stoa.org/places/530906",
+    "creator" : "https://recogito.pelagios.org/rainer",
+    "modified" : "2019-10-21T10:47:52+00:00",
+    "purpose" : "identifying"
+  } ],
+  "target" : {
+    "source" : "https://recogito.pelagios.org/part/5ec8253d-f398-4355-82d8-ba7f324ea935",
+    "type" : "Text",
+    "selector" : [ {
+      "type" : "TextQuoteSelector",
+      "exact" : "Ithaca"
+    }, {
+      "type" : "RangeSelector",
+      "startSelector" : {
+        "type" : "XPathSelector",
+        "value" : "/TEI[1]/text[1]/body[1]/div[1]/p[2]"
+      },
+      "endSelector" : {
+        "type" : "XPathSelector",
+        "value" : "/TEI[1]/text[1]/body[1]/div[1]/p[2]"
+      }
+    } ]
+  }
+}
 ```
+
 <br/>
 
 ---
