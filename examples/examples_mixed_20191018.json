@@ -1,4 +1,4 @@
-In response to my inquiry about our chllenge, Rob responded this way:
+In response to my inquiry about our challenge, Rob responded this way:
 /*
 There are three possible patterns for this, but first are Web Annotations really the right tool to be using for this?  It sounds like you want something with a stronger data model, rather than a framework for associating resources together.
 
@@ -27,9 +27,9 @@ Finally, you could simply add new properties to the model to describe the relati
   "id": "http://example.org/annotations/12345",
   "type": "Annotation",
   "creator": {
-    "id":"https://orcid.org/0000-0002-4066-8297",
-    "name":"Karl Grossner",
-    "homepage":"http://kgeographer.org"
+    "id":"https://orcid.org/0000-1234-2345-6789",
+    "name":"Anne Annotator",
+    "homepage":"http://annotationist.org"
   },
   "created": "2019-10-18",
   "motivation": ["linking","describing"],

@@ -213,6 +213,68 @@
       "http://www.w3.org/ns/anno.jsonld",
       { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}
     ],
+    "id": "http://example.org/annotations/99999",
+    "type": "Annotation",
+    "creator": {
+      "id":"https://orcid.org/0000-0002-4066-8297",
+      "name":"Karl Grossner",
+      "homepage":"http://kgeographer.org"
+    },
+    "created": "2019-11-07",
+    "motivation": "linking",
+    "body": [
+      { "id": "http://whgazetteer.org/places/6257329",
+        "title": "Jakhyung Tekchen Yontan Dargyeling",
+        "relation": "heldOffice",
+        "place_id": 6257329 
+      },
+      { "id": "http://whgazetteer.org/places/6257330",
+        "title": "Labrang Tashikyil",
+        "relation": "heldOffice",
+        "place_id": 6257330
+      },
+      { "id": "http://whgazetteer.org/places/6257331",
+        "title": "Labrang Tashikyil Menpa Dratsang",
+        "relation": "heldOffice",
+        "place_id": 6257331
+      },
+      { "id": "http://whgazetteer.org/places/6257334",
+        "title": "snang ra gser khang",
+        "relation": "birthplace",
+        "place_id": 6257334
+      },
+      { "id": "http://whgazetteer.org/places/6257332",
+        "title": "Kumbum Jampaling",
+        "relation": "heldOffice",
+        "place_id": 6257332
+      },
+      { "id": "http://whgazetteer.org/places/6257333",
+        "title": "labrang tashikyil dukhor dratsang",
+        "relation": "heldOffice",
+        "place_id": 6257333
+      },
+      { "id": "http://whgazetteer.org/places/6257336",
+        "title": "Drepung Gomang Dratsang",
+        "relation": "occupiedSeat",
+        "place_id": 6257336
+      },
+      { "id": "http://whgazetteer.org/places/6257335",
+        "title": "sgo mang dgon/",
+        "relation": "occupiedSeat",
+        "place_id": 6257335
+      }
+    ],
+    "target": {
+      "id": "P169",
+      "type": ["Person"],
+      "title": "sgo bla/"
+    }
+  },  
+  { 
+    "@context":[
+      "http://www.w3.org/ns/anno.jsonld",
+      { "lpo": "http://linkedpasts.org/ontology/lpo.jsonld"}
+    ],
     "id": "http://example.org/annotations/54321",
     "type": "Annotation",
     "creator": {
@@ -227,51 +289,50 @@
         "title": "Lumbini",
         "relation": "birthplace",
         "when": [{"earliest": "-0563", "latest": "-0480"}],
-"place_id": 86438
+        "place_id": 86438
       },
       { "id": "http://whgazetteer.org/places/86001",
         "title": "Kusinagara",
         "relation": "deathplace",
         "when": [{"earliest": "-0483", "latest": "-0400"}],
-"place_id": 86001
+        "place_id": 86001
       },
       { "id": "http://whgazetteer.org/places/86545",
         "title": "Magadha",
         "relation": "taught",
-"place_id": 86545
+        "place_id": 86545
       },
       { "id": "http://whgazetteer.org/places/85904",
         "title": "Koshala",
         "relation": "taught",
-"place_id": 85904
+        "place_id": 85904
       },
       { "id": "http://whgazetteer.org/places/6021669",
         "title": "Kapilavastu",
         "relation": "resided",
-"place_id": 6021669
+        "place_id": 6021669
       },
       { "id": "http://whgazetteer.org/places/88706",
         "title": "Rajagriha",
         "relation": "resided",
-"place_id": 88706
+        "place_id": 88706
       },
       { "id": "http://whgazetteer.org/places/82182",
         "title": "Bodh Gaya",
         "relation": "enlightened",
         "when": [{"earliest": "-0528", "latest": "-0445"}],
-"place_id": 82182
+        "place_id": 82182
       },
       { "id": "http://whgazetteer.org/places/89173",
         "title": "Sarnath",
         "relation": "resided",
-"place_id": 89173
+        "place_id": 89173
       },
       { "id": "http://whgazetteer.org/places/5249052",
         "title": "Indo-Gangetic Plain",
         "relation": "resided",
-"place_id": 5249052
-      }
-    ],
+        "place_id": 5249052
+      }],
     "target": {
       "id": "https://en.wikipedia.org/wiki/Gautama_Buddha",
       "type": ["Person"],
@@ -326,7 +387,7 @@
         "title": "Khotan",
         "relation": "findspot",
         "when": [{"earliest": "0400", "latest": "0700"}],
-"place_id": 85754
+        "place_id": 85754
         }
       ],
     "target": 
@@ -334,5 +395,6 @@
         "type": ["Artifact"],
         "title": "Silk princess painting"
       }
-  }
+  },
+
 ]
